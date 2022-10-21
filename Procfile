@@ -1,1 +1,1 @@
-web: gunicorn ourUI.wsgi
+web: gunicorn recommendation.wsgi
