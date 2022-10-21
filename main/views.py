@@ -9,8 +9,7 @@ from django.conf import settings
 dir = settings.BASE_DIR
 
 
-popular_df = pickle.load(open(r'app\main\popular.pkl', 'rb'))
-# popular_df = pickle.load(open(rf'{dir}\popular.pkl', 'rb'))
+popular_df = pickle.load(open(rf'{dir}\popular.pkl', 'rb'))
 pt = pickle.load(open(rf'{dir}\pt.pkl','rb'))
 books = pickle.load(open(rf'{dir}\books.pkl','rb'))
 similarity_scores = pickle.load(open(rf'{dir}\similarity_scores.pkl','rb'))
