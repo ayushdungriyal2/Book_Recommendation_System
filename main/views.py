@@ -8,11 +8,19 @@ from django.conf import settings
 
 dir = settings.BASE_DIR
 
-# popular_df = pickle.load(open(rf'{dir}\main\static\popular.pkl', 'rb'))
+# # popular_df = pickle.load(open(rf'{dir}\main\static\popular.pkl', 'rb'))
+# popular_df = pickle.load(open(os.path.join(dir, 'main', 'static', 'popular.pkl'), 'rb'))
+# pt = pickle.load(open(rf'{dir}\main\static\pt.pkl','rb'))
+# books = pickle.load(open(rf'{dir}\main\static\books.pkl','rb'))
+# similarity_scores = pickle.load(open(rf'{dir}\main\static\similarity_scores.pkl','rb'))
+
+
 popular_df = pickle.load(open(os.path.join(dir, 'main', 'static', 'popular.pkl'), 'rb'))
-pt = pickle.load(open(rf'{dir}\main\static\pt.pkl','rb'))
-books = pickle.load(open(rf'{dir}\main\static\books.pkl','rb'))
-similarity_scores = pickle.load(open(rf'{dir}\main\static\similarity_scores.pkl','rb'))
+pt = pickle.load(open(os.path.join(dir, 'main', 'static', 'pt.pkl'), 'rb'))
+books = pickle.load(open(os.path.join(dir, 'main', 'static', 'books.pkl'), 'rb'))
+similarity_scores = pickle.load(open(os.path.join(dir, 'main', 'static', 'similarity_scores.pkl'), 'rb'))
+
+
 
 book_name = list(popular_df['Book-Title']),
 author = list(popular_df['Book-Author']),
