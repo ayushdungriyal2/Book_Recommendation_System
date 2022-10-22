@@ -37,24 +37,27 @@ custom_array = list(zip(book_name[0],author[0],image[0]))
 def HOME(request):
     if request.method == 'POST':
         user_input = request.POST["name"]
-        index = np.where(pt.index == user_input)[0][0]
-        similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
-        print(similar_items)
-        data = []
+        try:
+            index = np.where(pt.index == user_input)[0][0]
+            similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
+            data = []
 
-        r_book_name = []
-        r_author = []
-        r_image = []
-        for i in similar_items:
-            temp_df = books[books['Book-Title'] == pt.index[i[0]]]
-            r_book_name.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title']))
-            r_author.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author']))
-            r_image.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M']))
+            r_book_name = []
+            r_author = []
+            r_image = []
+            for i in similar_items:
+                temp_df = books[books['Book-Title'] == pt.index[i[0]]]
+                r_book_name.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title']))
+                r_author.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author']))
+                r_image.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M']))
 
-        # print(data)
-        r_custom_array = list(zip(r_book_name,r_author,r_image))
+            # print(data)
+            r_custom_array = list(zip(r_book_name,r_author,r_image))
 
-        context = {"custom_array":custom_array, "data":data,"r_custom_array":r_custom_array, 'x':'x' }
+            context = {"custom_array":custom_array, "data":data,"r_custom_array":r_custom_array, 'x':'x' }
+
+        except:
+            context = {"custom_array":custom_array, 'y':'y','user_input':user_input}
 
     else:
 

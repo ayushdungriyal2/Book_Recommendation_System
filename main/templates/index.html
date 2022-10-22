@@ -29,7 +29,7 @@
                 style="width:20rem; margin: 0 0 40px 0">
 
         </form>
-        {% if x %}
+{% if x %}
         <hr>
         <h3 style="font-weight: 600; margin: 40px 0 10px 0 ;">Your Recommended Books!</h3>
         <div>
@@ -52,6 +52,17 @@
                 {% endfor %}
             </div>
         </div>
+<hr>
+{% endif %}
+
+{% if y %}
+        <hr>
+        <h3 style="font-weight: 600; margin: 40px 0 10px 0 ;">Cannot find any book named <b>"{{user_input}}"</b></h3>
+        <h5 style="padding: 15px 0 15px;">Instead try searching for something like - </h5>
+            <p>- Harry Potter and the Prisoner of Azkaban (Book 3)</p>
+            <p>- Neverwhere</p>
+            <p>- The Hobbit : The Enchanting Prelude to The Lord of the Rings</p>
+            <p>- Into the Wild</p>
 <hr>
 {% endif %}
 
